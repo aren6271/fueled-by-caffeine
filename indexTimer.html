@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- Meta Data -->
+	<head>
+		<title>Fueled By Caffeine</title>
+		<link rel="stylesheet" type="text/css" href="./styleTimer.css">	
+	</head>
+	
+	<!-- Web page content -->
+	<body class="body">
+		<ul class="nav">
+			<li>
+				<a href="./indexMain.html">< I'm Done Caffeinating</a>
+			</li>
+			<li>
+				<div><a href="#">Recaffeinate</a></div>
+			</li>
+		</ul>
+		
+		<div class="main" id="form">
+			
+			<!-- caffeine consumed and time desired --> 
+			<form action="#" onsubmit="showTimer();return false">
+				Initial Caffeine Consumed: <input type="number" name="amount" step="0.01" required> mmg<br><br>
+				How long would you like to work: <input type="number" name="time" step="0.01" id="timeInput" required> hours
+				<br><br>
+				<input type="submit" value="Submit">
+				<input type="reset" value="Clear">
+			</form>
+		</div>
+		<div id="timer" class="main" hidden>
+			<span class="dot">
+			<h1 class="h1style">Time Left</h1></span>
+			<br><br><br>
+			<form class="h1style"><h1 id="countdown"></h1></form>
+		</div>
+		
+		<script>
+			function showTimer(){
+				document.getElementById("form").style.display = "none";
+				document.getElementById("timer").style.display = "block";
+				var t = document.getElementById("timeInput").value;
+		
+			// Set the date we're counting down to
+			var countDownDate = new Date().getTime()+3600000*t;
+
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+
+			  // Get today's date and time
+			  var now = new Date().getTime();
+				
+			  // Find the distance between now and the count down date
+			  var distance = countDownDate - now;
+				
+			  // Time calculations for days, hours, minutes and seconds
+			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+				
+			  // Output the result in an element with id="demo"
+			  document.getElementById("countdown").innerHTML = hours + " hours, "
+			  + minutes + " min, " + seconds + " sec ";
+				
+			  // If the count down is over, write some text 
+			  if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("countdown").innerHTML = "Task Complete";
+			  }
+			}, 1000);
+			}
+		</script>
+	</body>
+</html>
