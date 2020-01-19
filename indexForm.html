@@ -4,7 +4,8 @@
 	<!-- Meta Data -->
 	<head>
 		<title>Fueled By Caffeine</title>
-		<link rel="stylesheet" type="text/css" href="./styleForm.css">	
+		<link rel="stylesheet" type="text/css" href="./styleForm.css">
+		<script type="text/javascript" src="./database.js"></script>
 	</head>
 	
 	<!-- Web page content -->
@@ -20,9 +21,10 @@
 			<h1 class="h1style">Enter Your Info</h1></span>
 			
 			<!-- weight, age, hypersensitive? --> 
-			<form action="#">
+			<form action="#" onsubmit="./indexMain.html.writeUsers();return false">
+				Username: <input type="text" name="username" required><br><br>
 				Age: <input type="number" name="age" required><br><br>
-				Weight: <input type="number" name="weight" required><br><br>
+				Weight: <input type="number" name="weight" step="0.01" required><br><br>
 				Sensitivity: <select name="sensitivity" required>
 					<option value="normal">Normal</option>
 					<option value="hypersensitivity">Hypersensitive</option>
