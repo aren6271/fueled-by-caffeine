@@ -30,23 +30,23 @@ function getCaffeineExpiration(oldCaffeineContent, neededCaffeine){
 
 var expHour = getCaffeineExpiration(500,100);
 
-print(expHour);
+//print(expHour);
 
 function getActiveCaffeine(caffeineContent,expirationHour){
 	var activeCaffeine = caffeineContent*(Math.exp(((-1)*expirationHour)/8.223)); //Calculates current y value (amount of active caffeine at time expirationHour)
       return activeCaffeine;
 }
 var activeCaffeine = getActiveCaffeine(500,expHour);
-print(activeCaffeine);
+//print(activeCaffeine);
 
 function getRecaffeinate(addedCaffeineContent, activeCaffeine){
 	var newCaffeineContent = (activeCaffeine + addedCaffeineContent);
     return newCaffeineContent;
 }
 var newCaffeineContent = getRecaffeinate(200, activeCaffeine);
-print(newCaffeineContent);
+//print(newCaffeineContent);
 
-print(getCaffeineExpiration(newCaffeineContent, 85));
+//print(getCaffeineExpiration(newCaffeineContent, 85));
 
 
 //recaffeinate(inputted caffeine content, same as original neededCaffeine (85), )
