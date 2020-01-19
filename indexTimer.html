@@ -53,6 +53,8 @@
 		var enough;
 		var recaffTime;
 		var sum;
+		var expTime = 0;
+		var more = 0;
 		
 			function showTimer(){
 				document.getElementById("form").style.display = "none";
@@ -72,13 +74,18 @@
 			  // Find the distance between now and the count down date
 			  var distance = countDownDate - now;
 				
+			if(distance <= 3600000*expTime && more==0){
+				alert("You should drink more caffeine to stay with your productivity goal");
+				more = 1;
+			}
+				
 			  // Time calculations for days, hours, minutes and seconds
 			  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 			  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 				
-			  // Output the result in an element with id="demo"
+			  // Output the result in an element with id="countdown"
 			  document.getElementById("countdown").innerHTML = hours + " hours, "
 			  + minutes + " min, " + seconds + " sec ";
 				
@@ -93,7 +100,7 @@
 			}
 			
 			function difference(){
-				var expTime = getCaffeineExpiration(document.getElementById("caffeineAmount").value, 85);
+				expTime = getCaffeineExpiration(document.getElementById("caffeineAmount").value, 85);
 				d = t - expTime;
 				if(d>0){
 					document.getElementById("diff").innerHTML = "You have " + d.toFixed(2) + " hours until you need to have more caffeine";
@@ -117,6 +124,7 @@
 				d = sum;
 				if(sum<t){
 					document.getElementById("diff").innerHTML = "You have " + sum.toFixed(2) + " hours until you need to have more caffeine";
+					more = 0;
 				} else {
 					document.getElementById("diff").innerHTML = "You've consumed enough caffeine";
 					enough = 1;
