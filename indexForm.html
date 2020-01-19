@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- Meta Data -->
+	<head>
+		<title>Fueled By Caffeine</title>
+		<link rel="stylesheet" type="text/css" href="./styleForm.css">	
+	</head>
+	
+	<!-- Web page content -->
+	<body class="body">
+		<ul class="nav">
+			<li>
+				<a href="./indexMain">< Back</a>
+			</li>
+		</ul>
+		
+		<div class="main">
+			<span class="dot">
+			<h1 class="h1style">Enter Your Info</h1></span>
+			
+			<!-- weight, age, hypersensitive? --> 
+			<form action="#">
+				Age: <input type="number" name="age" required><br><br>
+				Weight: <input type="number" name="weight" required><br><br>
+				Sensitivity: <select name="sensitivity" required>
+					<option value="normal">Normal</option>
+					<option value="hypersensitivity">Hypersensitive</option>
+					<option value="hyposensitivity">Hyposensitive</option>
+				</select>
+				<br><br>
+				<input type="submit" value="Submit">
+				<input type="reset" value="Clear">
+			</form>
+		</div>
+	</body>
+</html>
