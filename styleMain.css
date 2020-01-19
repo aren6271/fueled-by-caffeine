@@ -1,8 +1,10 @@
 * { margin: 0; }
 
 .body {
-	background-image: url("coffee-wallpaper.jpg");
-	background-position: center bottom;
+	background-image: url("coffee-steam.gif");
+
+	background-position: center-bottom;
+	background-size: 1500px, 1400px;
 }
 
 .nav {
@@ -23,6 +25,13 @@
 	color: white;
 	font-size: 32px;
 }
+.nav a:hover {background-color: #964D00}
+
+.nav a:active {
+  background-color: #964D00;
+  box-shadow: 5px 5px #666;
+  transform: translateY(4px);
+}
 
 .main {
 	padding-top: 128px;
@@ -40,12 +49,22 @@
 	padding-top: 96px;
 }
 
+
 .dot {
 	height: 256px;
 	width: 256px;
 	background-color: chocolate;
 	border-radius: 100%;
 	display: inline-block;
+	box-shadow: 0 0 0 5px #ffffff;
+}
+
+.dot:hover {background-color: #964D00}
+
+.dot:active {
+  background-color: #964D00;
+  box-shadow: 0 0 0 5px #ffffff,3px 9px #666;
+  transform: translateY(4px);
 }
 
 @media all and (max-width: 500px) {
