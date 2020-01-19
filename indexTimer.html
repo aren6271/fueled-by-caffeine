@@ -5,6 +5,7 @@
 	<head>
 		<title>Fueled By Caffeine</title>
 		<link rel="stylesheet" type="text/css" href="./styleTimer.css">	
+		<script type="text/javascript" src="./caffeineCalculations.js"></script>
 	</head>
 	
 	<!-- Web page content -->
@@ -14,15 +15,23 @@
 				<a href="./indexMain.html">< I'm Done Caffeinating</a>
 			</li>
 			<li>
-				<div><a href="#">Recaffeinate</a></div>
+				<div hidden id="Recaffeinate"><a href="#" onclick="recaff();return false">Recaffeinate</a></div>
 			</li>
 		</ul>
+		
+		<div class="recaffeinate" id="recaffForm" align="right" hidden>
+			<form action="#" onsubmit="recaffCalc();return false">
+				Extra Caffeine Consumed: <input type="number" name="extra" step="0.01" id="recaffAmount" required> mmg<br><br>
+				<input type="submit" value="Submit">
+				<input type="reset" value="Clear">
+			</form>
+		</div>
 		
 		<div class="main" id="form">
 			
 			<!-- caffeine consumed and time desired --> 
 			<form action="#" onsubmit="showTimer();return false">
-				Initial Caffeine Consumed: <input type="number" name="amount" step="0.01" required> mmg<br><br>
+				Initial Caffeine Consumed: <input type="number" name="amount" step="0.01" id="caffeineAmount" required> mmg<br><br>
 				How long would you like to work: <input type="number" name="time" step="0.01" id="timeInput" required> hours
 				<br><br>
 				<input type="submit" value="Submit">
@@ -32,15 +41,24 @@
 		<div id="timer" class="main" hidden>
 			<span class="dot">
 			<h1 class="h1style">Time Left</h1></span>
-			<br><br><br>
+			<br><br>
 			<form class="h1style"><h1 id="countdown"></h1></form>
+			<br>
+			<form class="h1style"><h1 id="diff"></h1></form>
 		</div>
 		
-		<script>
+		<script type="text/javascript">
+		var t;
+		var d;
+		var enough;
+		var recaffTime;
+		var sum;
+		
 			function showTimer(){
 				document.getElementById("form").style.display = "none";
 				document.getElementById("timer").style.display = "block";
-				var t = document.getElementById("timeInput").value;
+				document.getElementById("Recaffeinate").style.display = "block";
+				t = document.getElementById("timeInput").value;
 		
 			// Set the date we're counting down to
 			var countDownDate = new Date().getTime()+3600000*t;
@@ -70,6 +88,42 @@
 				document.getElementById("countdown").innerHTML = "Task Complete";
 			  }
 			}, 1000);
+				
+				difference();
+			}
+			
+			function difference(){
+				var expTime = getCaffeineExpiration(document.getElementById("caffeineAmount").value, 85);
+				d = t - expTime;
+				if(d>0){
+					document.getElementById("diff").innerHTML = "You have " + d.toFixed(2) + " hours until you need to have more caffeine";
+				} else {
+					document.getElementById("diff").innerHTML = "You've consumed enough caffeine";
+					enough = 1;
+				}
+			}
+			
+			function recaff(){
+				if(enough==1){
+					alert("You've consumed enough Caffiene");
+					enough = 0;
+				} else {
+					document.getElementById("recaffForm").style.display = "block";
+				}
+			}
+			
+			function recaffCalc(){
+				var recaffTime = getCaffeineExpiration(document.getElementById("caffeineAmount").value, 85);
+				sum = recaffTime + d;
+				if(sum<t){
+					document.getElementById("diff").innerHTML = "You have " + sum.toFixed(2) + " hours until you need to have more caffeine";
+				} else {
+					document.getElementById("diff").innerHTML = "You've consumed enough caffeine";
+					enough = 1;
+				}
+				document.getElementById("recaffForm").style.display = "block";
+				document.getElementById("recaffForm").style.display = "none";
+				sum = 0;
 			}
 		</script>
 	</body>

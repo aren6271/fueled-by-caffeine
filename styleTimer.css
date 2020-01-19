@@ -2,7 +2,7 @@
 
 .body {
 	background-image: url("coffee-wallpaper.jpg");
-	background-position: center bottom;
+	background-position: center top;
 }
 
 .nav {
@@ -32,16 +32,29 @@
   transform: translateY(4px);
 }
 
+.recaffeinate {
+	color: white;
+	padding: 16px;
+	
+}
+.recaffeinate form {
+	max-width: 200px;
+	background-color: rgba(244, 166, 98, 0.75);
+	border-radius: 32px;
+	text-align: center;
+	padding: 16px;
+}
+
 .main {
 	padding-top: 128px;
 	position: absolute;
-	top: 40%;
+	top: 45%;
 	left: 50%;
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	text-align: center;
 	color: white;
-	font-family: 'CoffeeScript';
+	font-family: 'Coffee';
 }
 
 .h1style {
@@ -51,7 +64,7 @@
 
 .h1style h1 {
 	padding-top: 0px;
-	font-size: 32px;
+	font-size: 24px;
 }
 
 .main form {
