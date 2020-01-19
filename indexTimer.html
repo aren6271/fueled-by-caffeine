@@ -105,16 +105,16 @@
 			
 			function recaff(){
 				if(enough==1){
-					alert("You've consumed enough Caffiene");
-					enough = 0;
+					alert("You've consumed enough Caffeine");
 				} else {
 					document.getElementById("recaffForm").style.display = "block";
 				}
 			}
 			
 			function recaffCalc(){
-				var recaffTime = getCaffeineExpiration(document.getElementById("caffeineAmount").value, 85);
+				var recaffTime = getCaffeineExpiration(document.getElementById("recaffAmount").value, 85);
 				sum = recaffTime + d;
+				d = sum;
 				if(sum<t){
 					document.getElementById("diff").innerHTML = "You have " + sum.toFixed(2) + " hours until you need to have more caffeine";
 				} else {
