@@ -1,7 +1,8 @@
 # fueled-by-caffeine
 HackDavis project
 
-Research About Coffee Values: 
+Research
+
 https://www.caffeineinformer.com/
 
 https://www.ncbi.nlm.nih.gov/pubmed/?term=23623949
