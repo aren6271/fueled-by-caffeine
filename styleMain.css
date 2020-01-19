@@ -2,6 +2,7 @@
 
 .body {
 	background-image: url("coffee-wallpaper.jpg");
+	background-position: center bottom;
 }
 
 .nav {
@@ -18,8 +19,6 @@
 	display: block;
 	text-decoration: none;
 	padding: 32px;
-	/*padding-left: 64px;
-	padding-right: 64px;*/
 	font-family: "Coffee";
 	color: white;
 	font-size: 32px;
